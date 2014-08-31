@@ -45,7 +45,9 @@ class OrderUserListener
             return;
         }
 
-        $order->setUser($user);
+//        $syliusUser = $this->getSyliusUser($user);
+        
+//        $order->setUser($user);
     }
 
     protected function getUser()
@@ -54,4 +56,34 @@ class OrderUserListener
             return $this->securityContext->getToken()->getUser();
         }
     }
+    
+    public function getSyliusUser( $user )
+    {
+        $syliusUser = $this->container->get('sylius.repository.user')->findBy(array('username'=>$user->getUsername()));
+
+        if ($syliusUser === null) {
+            $syliusUser = new \Sylius\Component\Core\Model\User();
+            $syliusUser->setUsername($user->getUsername());
+            $syliusUser->setUsernameCanonical($user->getUsernameCanonical());
+            $syliusUser->setEmail($user->getEmail());
+            $syliusUser->setEmailCanonical($user->getEmailCanonical());
+            $syliusUser->setSalt($user->getSalt());
+            $syliusUser->setPassword($user->getPassword());
+
+            $syliusUser->setFirstName($user->getFirstName());
+            $syliusUser->setLastName($user->getLastName());
+            $syliusUser->setCreatedAt($user->getCreatedAt());
+            $syliusUser->setUpdatedAt($user->getUpdatedAt());
+            $syliusUser->setDeletedAt($user->getDeletedAt());
+            $syliusUser->setCurrency($user->getCurrency());
+            $syliusUser->setOrders($user->getOrders());
+            $syliusUser->setBillingAddress($user->getBillingAddress());
+            $syliusUser->setShippingAddress($user->getShippingAddress());
+            $syliusUser->setAddresses($user->getAddresses());
+            $syliusUser->setOauthAccounts($user->getOauthAccounts());
+        }
+        
+        return $syliusUser;
+    }
+    
 }
