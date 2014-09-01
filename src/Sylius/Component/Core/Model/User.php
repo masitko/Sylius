@@ -33,6 +33,7 @@ class User extends BaseUser implements UserInterface
     protected $shippingAddress;
     protected $addresses;
     protected $oauthAccounts;
+    protected $phoneNumber;
 
     public function __construct()
     {
@@ -191,6 +192,24 @@ class User extends BaseUser implements UserInterface
     public function getLastName()
     {
         return $this->lastName;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setPhoneNumber($phoneNumber)
+    {
+        $this->phoneNumber = $phoneNumber;
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getPhoneNumber()
+    {
+        return $this->phoneNumber;
     }
 
     /**
