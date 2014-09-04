@@ -325,7 +325,7 @@
             <argument type="service" id="router" />
             <argument type="service" id="session" />
             <argument type="service" id="translator" />
-            <argument>sylius_checkout_payment</argument>
+            <argument>ttps_checkout_payment</argument>
             <tag name="kernel.event_listener" event="sylius.checkout.purchase.complete" method="abandonCart" />
             <tag name="kernel.event_listener" event="sylius.checkout.purchase.complete" method="addFlash" />
         </service>
@@ -333,7 +333,7 @@
             <argument type="service" id="router" />
             <argument type="service" id="session" />
             <argument type="service" id="translator" />
-            <argument>sylius_cart_summary</argument>
+            <argument>ttps_cart_summary</argument>
             <tag name="kernel.event_listener" event="kernel.exception" method="onKernelException" />
         </service>
         <service id="sylius.listener.image_upload" class="%sylius.listener.image_upload.class%">
