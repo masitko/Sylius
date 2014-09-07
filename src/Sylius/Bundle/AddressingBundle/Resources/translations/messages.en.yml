@@ -23,11 +23,11 @@ sylius:
             type: Type
             types:
                 country: Country
-                province: Province
+                province: Postcode
                 zone: Zone
         zone_member_country:
             country: Country
         zone_member_province:
-            province: Province
+            province: Postcode
         zone_member_zone:
             zone: Zone

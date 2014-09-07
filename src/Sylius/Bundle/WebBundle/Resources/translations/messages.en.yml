@@ -223,7 +223,7 @@ sylius:
         message: Do you want to delete this item?
         title: Confirmation
     country:
-        add_province: Add province
+        add_province: Add postcode
         create: Create country
         create_header: New country
         id: ID
@@ -572,7 +572,7 @@ sylius:
         update_header: Editing prototype
         updated_at: last update
     province:
-        provinces: Provinces
+        provinces: Postcodes
     remember_me: Remember me?
     save_changes: Save changes
     search: Search
