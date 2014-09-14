@@ -233,7 +233,13 @@ class Order implements OrderInterface
      */
     public function countItems()
     {
-        return $this->items->count();
+        $count = 0;
+        
+        foreach ($this->items as $item) {
+            $count += $item->getQuantity();
+        }
+        
+        return $count;
     }
 
     /**
