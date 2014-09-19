@@ -139,7 +139,7 @@ class Order extends Cart implements OrderInterface
     /**
      * {@inheritdoc}
      */
-    public function setShippingAddress(AddressInterface $address)
+    public function setShippingAddress(AddressInterface $address = null)
     {
         $this->shippingAddress = $address;
 
