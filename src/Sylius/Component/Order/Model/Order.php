@@ -114,6 +114,20 @@ class Order implements OrderInterface
     protected $deletedAt;
 
     /**
+     * Customer notes
+     *
+     * @var string
+     */
+    protected $notes;
+
+    /**
+     * Matched zone name (branch)
+     *
+     * @var string
+     */
+    protected $zoneName;
+
+    /**
      * State
      *
      * @var integer
@@ -188,6 +202,42 @@ class Order implements OrderInterface
     public function setNumber($number)
     {
         $this->number = $number;
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getNotes()
+    {
+        return $this->notes;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setNotes($notes)
+    {
+        $this->notes = $notes;
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getZoneName()
+    {
+        return $this->zoneName;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setZoneName($zoneName)
+    {
+        $this->zoneName = $zoneName;
 
         return $this;
     }

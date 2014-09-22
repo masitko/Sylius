@@ -51,6 +51,9 @@
         </field>
         <field name="deletedAt" column="deleted_at" type="datetime" nullable="true" />
 
+        <field name="notes" column="notes" type="string" nullable="true" />
+        <field name="zoneName" column="zone_name" type="string" nullable="true" />
+
         <gedmo:soft-deleteable field-name="deletedAt" />
     </mapped-superclass>
 
