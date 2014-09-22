@@ -110,6 +110,7 @@ sylius_payment:
         dummy: Test
         stripe: Stripe
         be2bill: Be2Bill
+        paypal_express_checkout: Paypal
 
 sylius_payum: ~
 
