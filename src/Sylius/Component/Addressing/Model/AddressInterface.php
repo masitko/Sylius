@@ -105,6 +105,20 @@ interface AddressInterface extends TimestampableInterface
     public function setStreet($street);
 
     /**
+     * Get street.
+     *
+     * @return string
+     */
+    public function getStreet2();
+
+    /**
+     * Set street.
+     *
+     * @param string $street2
+     */
+    public function setStreet2($street2);
+
+    /**
      * Get city.
      *
      * @return string

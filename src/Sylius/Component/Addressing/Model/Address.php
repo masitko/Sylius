@@ -68,6 +68,13 @@ class Address implements AddressInterface
     protected $street;
 
     /**
+     * Street.
+     *
+     * @var string
+     */
+    protected $street2;
+
+    /**
      * City.
      *
      * @var string
@@ -233,6 +240,24 @@ class Address implements AddressInterface
     public function setStreet($street)
     {
         $this->street = $street;
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getStreet2()
+    {
+        return $this->street2;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setStreet2($street2)
+    {
+        $this->street2 = $street2;
 
         return $this;
     }

@@ -30,6 +30,7 @@
         </many-to-one>
 
         <field name="street" column="street" type="string" />
+        <field name="street2" column="street2" type="string" />
         <field name="company" column="company" type="string" nullable="true" />
         <field name="city" column="city" type="string" />
         <field name="postcode" column="postcode" type="string" />
