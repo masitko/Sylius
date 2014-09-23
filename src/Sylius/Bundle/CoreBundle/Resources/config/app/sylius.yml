@@ -1,8 +1,8 @@
 sylius_core:
     driver: doctrine/orm
     emails:
-        enabled: true
-        from_email: { address: your-address@your-domain.com, sender_name: whatever-you-like }
+        enabled: false
+#        from_email: { address: your-address@your-domain.com, sender_name: whatever-you-like }
 #    order_confirmation:
 #        enabled: true
 #        template: YourBundle:YourTemplateHere.html.twig
