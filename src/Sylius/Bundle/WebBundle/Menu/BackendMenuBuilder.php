@@ -49,12 +49,12 @@ class BackendMenuBuilder extends MenuBuilder
 
         $this->addAssortmentMenu($menu, $childOptions, 'main');
         $this->addSalesMenu($menu, $childOptions, 'main');
-        $this->addCustomersMenu($menu, $childOptions, 'main');
-        $this->addContentMenu($menu, $childOptions, 'main');
+//        $this->addCustomersMenu($menu, $childOptions, 'main');
+//        $this->addContentMenu($menu, $childOptions, 'main');
         $this->addConfigurationMenu($menu, $childOptions, 'main');
 
         $menu->addChild('homepage', array(
-            'route' => 'sylius_homepage'
+            'route' => 'root'
         ))->setLabel($this->translate('sylius.backend.menu.main.homepage'));
 
         $menu->addChild('logout', array(
@@ -86,10 +86,11 @@ class BackendMenuBuilder extends MenuBuilder
             'labelAttributes'    => array('class' => 'nav-header')
         );
 
+        $this->addAdminMenu($menu, $childOptions, 'sidebar');
         $this->addAssortmentMenu($menu, $childOptions, 'sidebar');
         $this->addSalesMenu($menu, $childOptions, 'sidebar');
-        $this->addCustomersMenu($menu, $childOptions, 'sidebar');
-        $this->addContentMenu($menu, $childOptions, 'sidebar');
+//        $this->addCustomersMenu($menu, $childOptions, 'sidebar');
+//        $this->addContentMenu($menu, $childOptions, 'sidebar');
         $this->addConfigurationMenu($menu, $childOptions, 'sidebar');
 
         $this->eventDispatcher->dispatch(MenuBuilderEvent::BACKEND_SIDEBAR, new MenuBuilderEvent($this->factory, $menu));
@@ -131,10 +132,10 @@ class BackendMenuBuilder extends MenuBuilder
             'labelAttributes' => array('icon' => 'glyphicon glyphicon-th'),
         ))->setLabel($this->translate(sprintf('sylius.backend.menu.%s.options', $section)));
 
-        $child->addChild('product_attributes', array(
-            'route' => 'sylius_backend_product_attribute_index',
-            'labelAttributes' => array('icon' => 'glyphicon glyphicon-list-alt'),
-        ))->setLabel($this->translate(sprintf('sylius.backend.menu.%s.attributes', $section)));
+//        $child->addChild('product_attributes', array(
+//            'route' => 'sylius_backend_product_attribute_index',
+//            'labelAttributes' => array('icon' => 'glyphicon glyphicon-list-alt'),
+//        ))->setLabel($this->translate(sprintf('sylius.backend.menu.%s.attributes', $section)));
 
         $child->addChild('prototypes', array(
             'route' => 'sylius_backend_product_prototype_index',
@@ -164,6 +165,26 @@ class BackendMenuBuilder extends MenuBuilder
             'route' => 'sylius_backend_page_index',
             'labelAttributes' => array('icon' => 'glyphicon glyphicon-th-list'),
         ))->setLabel($this->translate(sprintf('sylius.backend.menu.%s.pages', $section)));
+    }
+
+    /**
+     * Add .
+     *
+     * @param ItemInterface $menu
+     * @param array         $childOptions
+     * @param string        $section
+     */
+    protected function addAdminMenu(ItemInterface $menu, array $childOptions, $section)
+    {
+        $child = $menu
+            ->addChild('admin', $childOptions)
+            ->setLabel($this->translate(sprintf('', $section)))
+        ;
+
+        $child->addChild('icms', array(
+            'route' => 'admin',
+            'labelAttributes' => array('icon' => 'glyphicon glyphicon-th-large'),
+        ))->setLabel($this->translate(sprintf('Manage web content', $section)));
     }
 
     /**
