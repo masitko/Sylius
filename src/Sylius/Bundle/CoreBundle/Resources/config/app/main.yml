@@ -34,7 +34,7 @@ liip_imagine:
         sylius_large:
             filters:
                 thumbnail: { size: [640, 480], mode: outbound }
-        homepage:
+        299square:
             quality: 65
             filters:
                 thumbnail: { size: [299, 299], mode: outbound }
