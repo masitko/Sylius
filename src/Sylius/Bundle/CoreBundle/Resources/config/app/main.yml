@@ -27,17 +27,17 @@ liip_imagine:
     filter_sets:
         sylius_small:
             filters:
-                thumbnail: { size: [120, 90], mode: outbound }
+                thumbnail: { size: [120, 90], mode: inset }
         sylius_medium:
             filters:
-                thumbnail: { size: [240, 180], mode: outbound }
+                thumbnail: { size: [240, 180], mode: inset }
         sylius_large:
             filters:
-                thumbnail: { size: [640, 480], mode: outbound }
+                thumbnail: { size: [640, 480], mode: inset }
         299square:
             quality: 65
             filters:
-                thumbnail: { size: [299, 299], mode: outbound }
+                thumbnail: { size: [299, 299], mode: inset }
 
 knp_snappy:
     pdf:
