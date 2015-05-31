@@ -67,13 +67,13 @@ class CapturePaymentUsingExpressCheckoutAction extends PaymentAwareAction
                 $m++;
             }
 
-            if ($order->getTaxTotal() !== 0) {
-                $details['L_PAYMENTREQUEST_0_NAME'.$m] = 'Tax Total';
-                $details['L_PAYMENTREQUEST_0_AMT'.$m]  = round($order->getTaxTotal() / 100, 2);
-                $details['L_PAYMENTREQUEST_0_QTY'.$m]  = 1;
-
-                $m++;
-            }
+//            if ($order->getTaxTotal() !== 0) {
+//                $details['L_PAYMENTREQUEST_0_NAME'.$m] = 'Tax Total';
+//                $details['L_PAYMENTREQUEST_0_AMT'.$m]  = round($order->getTaxTotal() / 100, 2);
+//                $details['L_PAYMENTREQUEST_0_QTY'.$m]  = 1;
+//
+//                $m++;
+//            }
 
             if ($order->getPromotionTotal() !== 0) {
                 $details['L_PAYMENTREQUEST_0_NAME'.$m] = 'Discount';
