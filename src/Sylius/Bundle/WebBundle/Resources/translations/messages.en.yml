@@ -373,6 +373,7 @@ sylius:
             backorder: Backorder
             fulfill: Fulfill
             return: Return
+            sell: Sell
         shipping_address: Shipping address
         shipping_charges: Shipping charges
         shipping_total: Shipping total
@@ -439,6 +440,7 @@ sylius:
             checkout: Checkout
             completed: Completed
             failed: Failed
+            cancelled: Cancelled
             new: New
             pending: Pending
             processing: Processing
