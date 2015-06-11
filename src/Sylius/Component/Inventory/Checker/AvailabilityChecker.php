@@ -42,7 +42,8 @@ class AvailabilityChecker implements AvailabilityCheckerInterface
      */
     public function isStockAvailable(StockableInterface $stockable)
     {
-        if (true === $this->backorders || $stockable->isAvailableOnDemand()) {
+//        if (true === $this->backorders || $stockable->isAvailableOnDemand()) {
+        if ($stockable->isAvailableOnDemand()) {
             return true;
         }
 
@@ -54,7 +55,8 @@ class AvailabilityChecker implements AvailabilityCheckerInterface
      */
     public function isStockSufficient(StockableInterface $stockable, $quantity)
     {
-        if (true === $this->backorders || $stockable->isAvailableOnDemand()) {
+//        if (true === $this->backorders || $stockable->isAvailableOnDemand()) {
+        if ($stockable->isAvailableOnDemand()) {
             return true;
         }
 
