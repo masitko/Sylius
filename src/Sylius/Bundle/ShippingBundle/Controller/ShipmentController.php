@@ -14,15 +14,21 @@ namespace Sylius\Bundle\ShippingBundle\Controller;
 use Sylius\Bundle\ResourceBundle\Controller\ResourceController;
 use Sylius\Component\Shipping\ShipmentTransitions;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\EventDispatcher\GenericEvent;
 
 class ShipmentController extends ResourceController
 {
     public function shipAction(Request $request)
     {
         $shipment = $this->findOr404($request);
+        
         $form = $this->createForm('sylius_shipment_tracking', $shipment);
 
         if ($form->submit($request)->isValid()) {
+
+            $param = $this->container->getParameter('email');    
+            $this->get('event_dispatcher')->dispatch('ttps.shipment.confirmation', new GenericEvent($shipment->getOrder(), $param ));
+            
             $this
                 ->get('sm.factory')
                 ->get($shipment, ShipmentTransitions::GRAPH)

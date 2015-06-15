@@ -33,10 +33,11 @@ class ShipmentTrackingType extends AbstractType
         $builder
             ->add('tracking', 'text', array(
                 'label' => 'sylius.form.shipment.tracking_code',
+                'required' => false,
                 'attr' => array(
                     'placeholder' => 'sylius.form.shipment.tracking_code'
                 ),
-                'constraints' => array(new NotBlank())
+//                'constraints' => array(new NotBlank())
             ))
         ;
 
