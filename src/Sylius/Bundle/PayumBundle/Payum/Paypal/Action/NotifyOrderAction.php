@@ -16,6 +16,11 @@ use SM\Factory\FactoryInterface;
 use Payum\Core\Exception\RequestNotSupportedException;
 use Payum\Core\Request\SecuredNotifyRequest;
 use Payum\Core\Request\SyncRequest;
+
+use Payum\Core\Request\Notify;
+use Payum\Core\Request\Sync;
+
+
 use Sylius\Bundle\PayumBundle\Payum\Action\AbstractPaymentStateAwareAction;
 use Sylius\Bundle\PayumBundle\Payum\Request\StatusRequest;
 use Sylius\Component\Core\Model\PaymentInterface;
@@ -59,7 +64,7 @@ class NotifyOrderAction extends AbstractPaymentStateAwareAction
         /** @var $payment PaymentInterface */
         $payment = $request->getModel();
 
-        $this->payment->execute(new SyncRequest($payment));
+        $this->payment->execute(new Sync($payment));
 
         $status = new StatusRequest($payment);
         $this->payment->execute($status);
@@ -77,8 +82,11 @@ class NotifyOrderAction extends AbstractPaymentStateAwareAction
     public function supports($request)
     {
         return
-            $request instanceof SecuredNotifyRequest &&
+            $request instanceof Notify &&
+            $request->getToken() &&
             $request->getModel() instanceof PaymentInterface
+//            $request instanceof SecuredNotifyRequest &&
+//            $request->getModel() instanceof PaymentInterface
         ;
     }
 }

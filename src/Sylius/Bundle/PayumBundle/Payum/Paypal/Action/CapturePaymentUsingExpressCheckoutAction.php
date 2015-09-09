@@ -14,7 +14,9 @@ namespace Sylius\Bundle\PayumBundle\Payum\Paypal\Action;
 use Payum\Core\Action\PaymentAwareAction;
 use Payum\Core\Bridge\Spl\ArrayObject;
 use Payum\Core\Exception\RequestNotSupportedException;
-use Payum\Core\Request\SecuredCaptureRequest;
+//use Payum\Core\Request\SecuredCaptureRequest;
+use Payum\Core\Request\Capture;
+
 use Sylius\Component\Core\Model\PaymentInterface;
 use Payum\Core\Security\GenericTokenFactoryInterface;
 
@@ -92,6 +94,9 @@ class CapturePaymentUsingExpressCheckoutAction extends PaymentAwareAction
             $payment->setDetails($details);
         }
 
+//        var_dump($details);
+//        die();
+        
         $details = ArrayObject::ensureArrayObject($details);
 
         try {
@@ -114,7 +119,7 @@ class CapturePaymentUsingExpressCheckoutAction extends PaymentAwareAction
     public function supports($request)
     {
         return
-            $request instanceof SecuredCaptureRequest &&
+            $request instanceof Capture &&
             $request->getModel() instanceof PaymentInterface
         ;
     }

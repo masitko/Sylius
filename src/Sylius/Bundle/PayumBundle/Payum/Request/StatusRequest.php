@@ -11,10 +11,12 @@
 
 namespace Sylius\Bundle\PayumBundle\Payum\Request;
 
-use Payum\Core\Request\BaseStatusRequest;
+//use Payum\Core\Request\BaseStatusRequest;
+use Payum\Core\Request\BaseGetStatus;
+
 use Sylius\Component\Payment\Model\PaymentInterface;
 
-class StatusRequest extends BaseStatusRequest
+class StatusRequest extends BaseGetStatus
 {
     /**
      * {@inheritdoc}
@@ -143,4 +145,49 @@ class StatusRequest extends BaseStatusRequest
     {
         return $this->status === PaymentInterface::STATE_UNKNOWN;
     }
+    
+   /**
+     * {@inheritdoc}
+     */
+    public function isAuthorized()
+    {
+        return $this->status === PaymentInterface::STATE_AUTHORIZED;
+    }
+    /**
+     * {@inheritdoc}
+     */
+    public function markAuthorized()
+    {
+        $this->status = PaymentInterface::STATE_AUTHORIZED;
+    }
+
+     /**
+     * {@inheritdoc}
+     */
+    public function isRefunded()
+    {
+        return $this->status === PaymentInterface::STATE_REFUNDED;
+    }
+    /**
+     * {@inheritdoc}
+     */
+    public function markRefunded()
+    {
+        $this->status = PaymentInterface::STATE_REFUNDED;
+    }
+    
+   /**
+     * {@inheritdoc}
+     */
+    public function markCaptured()
+    {
+        $this->status = PaymentInterface::STATE_COMPLETED;
+    }
+    /**
+     * {@inheritdoc}
+     */
+    public function isCaptured()
+    {
+        return $this->status === PaymentInterface::STATE_COMPLETED;
+    }    
 }

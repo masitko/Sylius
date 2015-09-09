@@ -33,7 +33,14 @@ payum:
                 identifier: %be2bill.identifier%
                 password:   %be2bill.password%
                 sandbox:    %be2bill.sandbox%
-
+        sagepay_onsite:
+            sagepay_onsite:
+                vendor:     %sagepay.vendor%
+                sandbox:    %sagepay.sandbox%
+#                vendor:     sagepay.vendor
+#                sandbox:    true
+                actions:
+                    - sylius.payum.sagepay.action.capture_payment_using_sagepay_onsite
         dummy:
             custom:
                 actions:

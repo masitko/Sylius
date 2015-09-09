@@ -13,7 +13,8 @@ namespace Sylius\Bundle\PayumBundle\Payum\Action;
 
 use Payum\Core\Action\PaymentAwareAction;
 use Payum\Core\Exception\RequestNotSupportedException;
-use Payum\Core\Request\StatusRequestInterface;
+//use Payum\Core\Request\StatusRequestInterface;
+use Payum\Core\Request\GetStatusInterface;
 use Sylius\Component\Payment\Model\PaymentInterface;
 
 class PaymentStatusAction extends PaymentAwareAction
@@ -48,7 +49,7 @@ class PaymentStatusAction extends PaymentAwareAction
     public function supports($request)
     {
         return
-            $request instanceof StatusRequestInterface &&
+            $request instanceof GetStatusInterface &&
             $request->getModel() instanceof PaymentInterface
         ;
     }

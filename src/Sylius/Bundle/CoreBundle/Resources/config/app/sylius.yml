@@ -111,6 +111,7 @@ sylius_payment:
         stripe: Stripe
         be2bill: Be2Bill
         paypal_express_checkout: Paypal
+        sagepay_onsite: SagePay
 
 sylius_payum: ~
 
