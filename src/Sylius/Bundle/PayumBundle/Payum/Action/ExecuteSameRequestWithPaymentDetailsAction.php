@@ -34,8 +34,8 @@ class ExecuteSameRequestWithPaymentDetailsAction extends PaymentAwareAction
         $payment = $request->getModel();
         $details = ArrayObject::ensureArrayObject($payment->getDetails());
 
-        var_dump($details);
-        die();
+//        var_dump($details);
+//        die();
         
         try {
             $request->setModel($details);

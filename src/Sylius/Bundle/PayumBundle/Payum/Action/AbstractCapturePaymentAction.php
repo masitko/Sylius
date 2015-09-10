@@ -40,8 +40,8 @@ abstract class AbstractCapturePaymentAction extends PaymentAwareAction
             $request->setModel($payment);
             throw $e;
         }
-        var_dump($details);
-        die();
+//        var_dump($details);
+//        die();
     }
     /**
      * {@inheritdoc}
